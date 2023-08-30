@@ -23,7 +23,7 @@ bucketlist <- function(add_region = FALSE, ...) {
                 key = Sys.getenv("AWS_ACCESS_KEY_ID"), 
                 secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), 
                 session_token = NULL,
-                use_https = FALSE, ...)
+                use_https = use_https, ...)
     out <- do.call("rbind.data.frame", r[["Buckets"]])
     out[] <- lapply(out, as.character)
     names(out)[names(out) %in% "Name"] <- "Bucket"
